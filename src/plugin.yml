@@ -13,6 +13,3 @@
     delhome:
       description: Löscht dein Home!
       usage: /delhome [Name]
-    homes:
-      description: Zeigt dir deine Homes an!
-      usage: /homes
