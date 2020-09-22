@@ -1,0 +1,18 @@
+  name: AdvancedHomes
+  main: de.aaron.advancedhomes.main.AdvancedHomes
+  Author: Veroxar
+  description: Advanced Homes entwickelt von Veroxar!
+  version: 1.0
+  commands:
+    AdHo:
+      description: Command Prefix von Advanced Homes!
+      usage: /AdHo help
+    sethome:
+      description: Setze dein Home!
+      usage: /sethome [Name]
+    delhome:
+      description: Löscht dein Home!
+      usage: /delhome [Name]
+    homes:
+      description: Zeigt dir deine Homes an!
+      usage: /homes
