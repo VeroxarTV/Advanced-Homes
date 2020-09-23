@@ -12,7 +12,7 @@ public class OnPlayerMovement implements Listener {
 
     @EventHandler
 
-    public void onPlayerMovement (PlayerMoveEvent e) {
+    public void onPlayerMovement(PlayerMoveEvent e) {
 
         Player p = e.getPlayer();
 

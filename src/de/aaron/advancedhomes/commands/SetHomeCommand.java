@@ -68,7 +68,7 @@ public class SetHomeCommand implements CommandExecutor {
                             p.sendMessage(AdvancedHomes.getPrefix() + "§cDu besitzt schon 9 Homes!");
                     }
 
-                } else if (!(config.contains(p.getName()))){
+                } else if (!(config.contains(p.getName()))) {
 
                     if (!(args[0].equalsIgnoreCase("*"))) {
 
@@ -98,7 +98,7 @@ public class SetHomeCommand implements CommandExecutor {
                         p.sendMessage(AdvancedHomes.getPrefix() + "§cDieses Home hast du bereits gesetzt!");
 
                     } else
-                    p.sendMessage(AdvancedHomes.getPrefix() + "§cDu besitzt schon 3 Homes!");
+                        p.sendMessage(AdvancedHomes.getPrefix() + "§cDu besitzt schon 3 Homes!");
 
                 } else {
 

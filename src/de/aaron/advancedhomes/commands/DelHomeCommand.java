@@ -28,7 +28,7 @@ public class DelHomeCommand implements CommandExecutor {
 
         if (cmd.getName().equalsIgnoreCase("delhome")) {
 
-            if(!(sender instanceof Player)) {
+            if (!(sender instanceof Player)) {
 
                 sender.sendMessage(AdvancedHomes.getOnlyplayer());
 

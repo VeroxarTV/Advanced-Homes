@@ -25,7 +25,7 @@ public class HomeCommand implements CommandExecutor {
 
         if (cmd.getName().equalsIgnoreCase("home")) {
 
-            if (!(sender instanceof  Player)) {
+            if (!(sender instanceof Player)) {
 
                 sender.sendMessage(AdvancedHomes.getOnlyplayer());
 
@@ -61,8 +61,7 @@ public class HomeCommand implements CommandExecutor {
                         p.teleport(home);
                         teleportingPlayers.remove(p.getUniqueId());
 
-                    }, 20*3);
-
+                    }, 20 * 3);
 
 
                 }

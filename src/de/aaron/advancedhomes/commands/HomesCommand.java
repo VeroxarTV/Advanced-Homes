@@ -17,7 +17,7 @@ public class HomesCommand implements CommandExecutor {
 
         if (cmd.getName().equalsIgnoreCase("homes")) {
 
-            if(!(sender instanceof Player)) {
+            if (!(sender instanceof Player)) {
 
                 sender.sendMessage(AdvancedHomes.getOnlyplayer());
 
@@ -29,9 +29,11 @@ public class HomesCommand implements CommandExecutor {
 
                     p.sendMessage(AdvancedHomes.getHelp());
 
-                } else if (config.getInt(p.getName() + ".Homes", SetHomeCommand.homes.size()) != 0 ){
+                } else if (config.getInt(p.getName() + ".Homes", SetHomeCommand.homes.size()) != 0) {
 
-                    p.sendMessage("§aHomes§7 (§3" + config.getInt(p.getName() + ".Homes", SetHomeCommand.homes.size()) + "§7)§7 : §3" + config.getStringList(p.getName() + ".HomeNames"));
+                    p.sendMessage("§aHomes§7 (§3" + config.getInt(p.getName() + ".Homes",
+                            SetHomeCommand.homes.size()) + "§7)§7 : §3"
+                            + config.getStringList(p.getName() + ".HomeNames"));
 
                 } else
                     p.sendMessage(AdvancedHomes.getPrefix() + "§cDu besitzt keine Homes!");
