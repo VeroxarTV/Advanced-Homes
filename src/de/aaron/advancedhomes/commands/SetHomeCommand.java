@@ -7,13 +7,13 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class SetHomeCommand implements CommandExecutor {
 
     FileConfiguration config = AdvancedHomes.getPlugin().getConfig();
-    public static List<String> homes = new ArrayList<>();
+    public static HashMap<UUID, String> homes = new HashMap<>();
+    public static List<String> homenames = new ArrayList<>(homes.values());
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String labels, String[] args) {
@@ -42,16 +42,18 @@ public class SetHomeCommand implements CommandExecutor {
 
                     } else {
 
-                        if (config.getInt(p.getName() + ".Homes", homes.size()) < 9) {
+                        if (config.getInt(p.getName() + ".Homes", homenames.size()) < 9) {
 
                             if (!(args[0].equalsIgnoreCase("*"))) {
 
-                                SetHomeCommand.homes =(config.getStringList(p.getName() + ".HomeNames"));
+                                SetHomeCommand.homes.get(p.getUniqueId());
+                                SetHomeCommand.homenames = config.getStringList(p.getName() + ".HomeNames");
 
-                                homes.add(args[0].toLowerCase());
+                                homes.put(p.getUniqueId(), args[0].toLowerCase());
+                                homenames.add(homes.get(p.getUniqueId()));
 
-                                config.set(p.getName() + ".Homes", homes.size());
-                                config.set(p.getName() + ".HomeNames", homes);
+                                config.set(p.getName() + ".Homes", homenames.size());
+                                config.set(p.getName() + ".HomeNames", homenames);
                                 config.set(p.getName() + "." + args[0].toLowerCase() + ".World", p.getWorld().getName());
                                 config.set(p.getName() + "." + args[0].toLowerCase() + ".X", p.getLocation().getX());
                                 config.set(p.getName() + "." + args[0].toLowerCase() + ".Y", p.getLocation().getY());
@@ -73,12 +75,14 @@ public class SetHomeCommand implements CommandExecutor {
 
                     if (!(args[0].equalsIgnoreCase("*"))) {
 
-                        SetHomeCommand.homes =(config.getStringList(p.getName() + ".HomeNames"));
+                        SetHomeCommand.homes.get(p.getUniqueId());
+                        SetHomeCommand.homenames = config.getStringList(p.getName() + ".HomeNames");
 
-                        homes.add(args[0].toLowerCase());
+                        homes.put(p.getUniqueId(),args[0].toLowerCase());
+                        homenames.add(homes.get(p.getUniqueId()));
 
-                        config.set(p.getName() + ".Homes", homes.size());
-                        config.set(p.getName() + ".HomeNames", homes);
+                        config.set(p.getName() + ".Homes", homenames.size());
+                        config.set(p.getName() + ".HomeNames", homenames);
                         config.set(p.getName() + "." + args[0].toLowerCase() + ".World", p.getWorld().getName());
                         config.set(p.getName() + "." + args[0].toLowerCase() + ".X", p.getLocation().getX());
                         config.set(p.getName() + "." + args[0].toLowerCase() + ".Y", p.getLocation().getY());
@@ -92,7 +96,7 @@ public class SetHomeCommand implements CommandExecutor {
                     } else
                         p.sendMessage(AdvancedHomes.getPrefix() + "§cDas ist ein Ungültiger Name!");
 
-                } else if (config.getInt(p.getName() + ".Homes", homes.size()) >= 3) {
+                } else if (config.getInt(p.getName() + ".Homes", homenames.size()) >= 3) {
 
                     if (config.contains(p.getName() + "." + args[0].toLowerCase())) {
 
@@ -111,12 +115,14 @@ public class SetHomeCommand implements CommandExecutor {
 
                         if (!(args[0].equalsIgnoreCase("*"))) {
 
-                            SetHomeCommand.homes =(config.getStringList(p.getName() + ".HomeNames"));
+                            SetHomeCommand.homes.get(p.getUniqueId());
+                            SetHomeCommand.homenames = config.getStringList(p.getName() + ".HomeNames");
 
-                            homes.add(args[0].toLowerCase());
+                            homes.put(p.getUniqueId(),args[0].toLowerCase());
+                            homenames.add(homes.get(p.getUniqueId()));
 
-                            config.set(p.getName() + ".Homes", homes.size());
-                            config.set(p.getName() + ".HomeNames", homes);
+                            config.set(p.getName() + ".Homes", homenames.size());
+                            config.set(p.getName() + ".HomeNames", homenames);
                             config.set(p.getName() + "." + args[0].toLowerCase() + ".World", p.getWorld().getName());
                             config.set(p.getName() + "." + args[0].toLowerCase() + ".X", p.getLocation().getX());
                             config.set(p.getName() + "." + args[0].toLowerCase() + ".Y", p.getLocation().getY());

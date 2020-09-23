@@ -17,8 +17,10 @@ public class HomeCommand implements CommandExecutor {
 
     FileConfiguration config = AdvancedHomes.getPlugin().getConfig();
 
-    public static int taskID;
+    private static int delayID;
+    public static int waitID;
     public static HashMap<UUID, Integer> teleportingPlayers = new HashMap<>();
+    public static HashMap<UUID, Integer> teleportingPlayersDelay = new HashMap<>();
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String labels, String[] args) {
@@ -41,7 +43,7 @@ public class HomeCommand implements CommandExecutor {
 
                     p.sendMessage(AdvancedHomes.getPrefix() + "§cDieses Home existiert nicht!");
 
-                } else {
+                } else if (!(teleportingPlayersDelay.containsKey(p.getUniqueId()))) {
 
                     World world = Bukkit.getWorld(config.getString(p.getName() + "." + args[0].toLowerCase() + ".World"));
                     double x = config.getDouble(p.getName() + "." + args[0].toLowerCase() + ".X");
@@ -54,17 +56,31 @@ public class HomeCommand implements CommandExecutor {
 
                     p.sendMessage(AdvancedHomes.getPrefix() + "§3Du wirst in 3 Sekunden teleportiert!");
 
-                    teleportingPlayers.put(p.getUniqueId(), taskID);
+                    teleportingPlayersDelay.put(p.getUniqueId(), delayID);
+                    teleportingPlayers.put(p.getUniqueId(), HomeCommand.waitID);
 
-                    taskID = Bukkit.getScheduler().scheduleSyncDelayedTask(AdvancedHomes.getPlugin(), () -> {
 
-                        p.teleport(home);
-                        teleportingPlayers.remove(p.getUniqueId());
+                    waitID = Bukkit.getScheduler().scheduleSyncDelayedTask(AdvancedHomes.getPlugin(), () -> {
+
+                        if (teleportingPlayers.containsKey(p.getUniqueId())) {
+
+                            p.teleport(home);
+                            teleportingPlayers.remove(p.getUniqueId());
+                        }
+
+                        Bukkit.getScheduler().cancelTask(waitID);
 
                     }, 20 * 3);
 
+                    delayID = Bukkit.getScheduler().scheduleSyncDelayedTask(AdvancedHomes.getPlugin(), () -> {
 
-                }
+                            teleportingPlayersDelay.remove(p.getUniqueId());
+                            Bukkit.getScheduler().cancelTask(delayID);
+
+                    },20*5);
+
+                } else
+                    p.sendMessage(AdvancedHomes.getPrefix() + "§cBitte warte ca. 5 Sekunden!");
 
             }
 

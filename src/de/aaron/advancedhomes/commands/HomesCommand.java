@@ -29,10 +29,10 @@ public class HomesCommand implements CommandExecutor {
 
                     p.sendMessage(AdvancedHomes.getHelp());
 
-                } else if (config.getInt(p.getName() + ".Homes", SetHomeCommand.homes.size()) != 0 && config.get(p.getName()) != null) {
+                } else if (config.getInt(p.getName() + ".Homes", SetHomeCommand.homenames.size()) != 0 && config.get(p.getName()) != null) {
 
                     p.sendMessage("§aHomes§7 (§3" + config.getInt(p.getName() + ".Homes",
-                            SetHomeCommand.homes.size()) + "§7)§7 : §3"
+                            SetHomeCommand.homenames.size()) + "§7)§7 : §3"
                             + config.getList(p.getName() + ".HomeNames"));
 
                 } else
