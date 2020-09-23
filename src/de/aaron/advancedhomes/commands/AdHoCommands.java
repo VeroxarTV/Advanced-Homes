@@ -11,7 +11,7 @@ public class AdHoCommands implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
-        if (cmd.getName().equalsIgnoreCase("AdHo")) {
+        if (cmd.getName().equalsIgnoreCase("adho")) {
 
             if (!(sender instanceof Player)) {
 
@@ -25,9 +25,9 @@ public class AdHoCommands implements CommandExecutor {
 
                         case "help":
                             sender.sendMessage("§7***-***-§bAdvanced§7-§bHomes§7-***-***");
-                            sender.sendMessage("§6/AdHo help §7≫ §aZeigt dir dieses Menü an!");
-                            sender.sendMessage("§6/AdHo info §7≫ §aZeigt dir Informationen über das Plugin an!");
-                            sender.sendMessage("§6/AdHo reload §7≫ §aReloaded die Config!");
+                            sender.sendMessage("§6/adho help §7≫ §aZeigt dir dieses Menü an!");
+                            sender.sendMessage("§6/adho info §7≫ §aZeigt dir Informationen über das Plugin an!");
+                            sender.sendMessage("§6/adho reload §7≫ §aReloaded die Config!");
                             sender.sendMessage("§6/sethome [Name] §7≫ §aSetzt dein Home!");
                             sender.sendMessage("§6/home [name] §7≫ §aTeleportiert dich zu deinem Home!");
                             sender.sendMessage("§6/homes §7≫ §aZeigt dir eine Liste deiner Homes an!");
@@ -73,7 +73,7 @@ public class AdHoCommands implements CommandExecutor {
 
                             case "help":
                                 p.sendMessage("§7***-***-§bAdvanced§7-§bHomes§7-***-***");
-                                p.sendMessage("§6/AdHo help §7≫ §aZeigt dir dieses Menü an!");
+                                p.sendMessage("§6/adho help §7≫ §aZeigt dir dieses Menü an!");
                                 p.sendMessage("§6/sethome [Name] §7≫ §aSetzt dein Home!");
                                 p.sendMessage("§6/home [name] §7≫ §aTeleportiert dich zu deinem Home!");
                                 p.sendMessage("§6/homes §7≫ §aZeigt dir eine Liste deiner Homes an!");
@@ -114,9 +114,9 @@ public class AdHoCommands implements CommandExecutor {
 
                         case "help":
                             p.sendMessage("§7***-***-§bAdvanced§7-§bHomes§7-***-***");
-                            p.sendMessage("§6/AdHo help §7≫ §aZeigt dir dieses Menü an!");
-                            p.sendMessage("§6/AdHo info §7≫ §aZeigt dir Informationen über das Plugin an!");
-                            p.sendMessage("§6/AdHo reload §7≫ §aReloaded die Config!");
+                            p.sendMessage("§6/adho help §7≫ §aZeigt dir dieses Menü an!");
+                            p.sendMessage("§6/adho info §7≫ §aZeigt dir Informationen über das Plugin an!");
+                            p.sendMessage("§6/adho reload §7≫ §aReloaded die Config!");
                             p.sendMessage("§6/sethome [Name] §7≫ §aSetzt dein Home!");
                             p.sendMessage("§6/home [name] §7≫ §aTeleportiert dich zu deinem Home!");
                             p.sendMessage("§6/homes §7≫ §aZeigt dir eine Liste deiner Homes an!");

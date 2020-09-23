@@ -29,11 +29,11 @@ public class HomesCommand implements CommandExecutor {
 
                     p.sendMessage(AdvancedHomes.getHelp());
 
-                } else if (config.getInt(p.getName() + ".Homes", SetHomeCommand.homes.size()) != 0) {
+                } else if (config.getInt(p.getName() + ".Homes", SetHomeCommand.homes.size()) != 0 && config.get(p.getName()) != null) {
 
                     p.sendMessage("§aHomes§7 (§3" + config.getInt(p.getName() + ".Homes",
                             SetHomeCommand.homes.size()) + "§7)§7 : §3"
-                            + config.getStringList(p.getName() + ".HomeNames"));
+                            + config.getList(p.getName() + ".HomeNames"));
 
                 } else
                     p.sendMessage(AdvancedHomes.getPrefix() + "§cDu besitzt keine Homes!");

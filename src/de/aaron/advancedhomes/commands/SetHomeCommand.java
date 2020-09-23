@@ -8,11 +8,12 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SetHomeCommand implements CommandExecutor {
 
     FileConfiguration config = AdvancedHomes.getPlugin().getConfig();
-    public static ArrayList<String> homes = new ArrayList<>();
+    public static List<String> homes = new ArrayList<>();
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String labels, String[] args) {
@@ -45,6 +46,8 @@ public class SetHomeCommand implements CommandExecutor {
 
                             if (!(args[0].equalsIgnoreCase("*"))) {
 
+                                SetHomeCommand.homes =(config.getStringList(p.getName() + ".HomeNames"));
+
                                 homes.add(args[0].toLowerCase());
 
                                 config.set(p.getName() + ".Homes", homes.size());
@@ -56,8 +59,6 @@ public class SetHomeCommand implements CommandExecutor {
                                 config.set(p.getName() + "." + args[0].toLowerCase() + ".Yaw", p.getLocation().getYaw());
                                 config.set(p.getName() + "." + args[0].toLowerCase() + ".Pitch", p.getLocation().getPitch());
                                 AdvancedHomes.getPlugin().saveConfig();
-
-                                homes.remove(args[0].toLowerCase());
 
                                 p.sendMessage(AdvancedHomes.getPrefix() + "§aDein Home wurde gesetzt!");
 
@@ -72,6 +73,8 @@ public class SetHomeCommand implements CommandExecutor {
 
                     if (!(args[0].equalsIgnoreCase("*"))) {
 
+                        SetHomeCommand.homes =(config.getStringList(p.getName() + ".HomeNames"));
+
                         homes.add(args[0].toLowerCase());
 
                         config.set(p.getName() + ".Homes", homes.size());
@@ -83,8 +86,6 @@ public class SetHomeCommand implements CommandExecutor {
                         config.set(p.getName() + "." + args[0].toLowerCase() + ".Yaw", p.getLocation().getYaw());
                         config.set(p.getName() + "." + args[0].toLowerCase() + ".Pitch", p.getLocation().getPitch());
                         AdvancedHomes.getPlugin().saveConfig();
-
-                        homes.remove(args[0].toLowerCase());
 
                         p.sendMessage(AdvancedHomes.getPrefix() + "§aDein Home wurde gesetzt!");
 
@@ -110,6 +111,8 @@ public class SetHomeCommand implements CommandExecutor {
 
                         if (!(args[0].equalsIgnoreCase("*"))) {
 
+                            SetHomeCommand.homes =(config.getStringList(p.getName() + ".HomeNames"));
+
                             homes.add(args[0].toLowerCase());
 
                             config.set(p.getName() + ".Homes", homes.size());
@@ -121,8 +124,6 @@ public class SetHomeCommand implements CommandExecutor {
                             config.set(p.getName() + "." + args[0].toLowerCase() + ".Yaw", p.getLocation().getYaw());
                             config.set(p.getName() + "." + args[0].toLowerCase() + ".Pitch", p.getLocation().getPitch());
                             AdvancedHomes.getPlugin().saveConfig();
-
-                            homes.remove(args[0].toLowerCase());
 
                             p.sendMessage(AdvancedHomes.getPrefix() + "§aDein Home wurde gesetzt!");
 

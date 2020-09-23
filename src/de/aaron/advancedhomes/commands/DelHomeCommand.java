@@ -57,6 +57,7 @@ public class DelHomeCommand implements CommandExecutor {
                                         delhome.remove(p.getUniqueId());
                                         delhomeDelay.add(p.getUniqueId());
 
+
                                     } else
                                         p.sendMessage(AdvancedHomes.getPrefix() + "§cDu musst zu erst §6/delhome * §ceingeben!");
 
@@ -71,10 +72,12 @@ public class DelHomeCommand implements CommandExecutor {
 
                     } else if (config.contains(p.getName() + "." + args[0].toLowerCase())) {
 
+                        SetHomeCommand.homes =(config.getStringList(p.getName() + ".HomeNames"));
+
                         SetHomeCommand.homes.remove(args[0].toLowerCase());
 
                         config.set(p.getName() + "." + args[0].toLowerCase(), null);
-                        config.set(p.getName() + ".Homes", SetHomeCommand.homes);
+                        config.set(p.getName() + ".HomeNames", SetHomeCommand.homes);
 
                         AdvancedHomes.getPlugin().saveConfig();
 

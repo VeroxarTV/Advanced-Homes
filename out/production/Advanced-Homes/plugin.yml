@@ -4,9 +4,9 @@
   description: Advanced Homes entwickelt von Veroxar!
   version: 1.0
   commands:
-    AdHo:
+    adho:
       description: Command Prefix von Advanced Homes!
-      usage: /AdHo help
+      usage: /adho help
     sethome:
       description: Setze dein Home!
       usage: /sethome [Name]
