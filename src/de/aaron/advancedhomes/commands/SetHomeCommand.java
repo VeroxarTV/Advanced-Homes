@@ -34,7 +34,7 @@ public class SetHomeCommand implements CommandExecutor {
 
                     return true;
 
-                } else if (p.hasPermission("AdHo.Homes.9")) {
+                } else if (p.hasPermission("adho.homes.9")) {
 
                     if (config.contains(p.getName() + "." + args[0].toLowerCase())) {
 

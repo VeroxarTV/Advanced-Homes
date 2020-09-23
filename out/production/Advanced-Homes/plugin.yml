@@ -3,6 +3,7 @@
   Author: Veroxar
   description: Advanced Homes entwickelt von Veroxar!
   version: 1.0
+
   commands:
     adho:
       description: Command Prefix von Advanced Homes!
@@ -19,3 +20,4 @@
     home:
       description: Teleportiert dich zu deinem Home!
       usage: /home [name]
+

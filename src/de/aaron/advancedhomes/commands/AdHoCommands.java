@@ -60,7 +60,7 @@ public class AdHoCommands implements CommandExecutor {
 
                 Player p = (Player) sender;
 
-                if (!(p.hasPermission("AdvancedHomes.Help.Admin"))) {
+                if (!(p.hasPermission("adho.help.admin"))) {
 
 
                     if (!(args.length == 1)) {
