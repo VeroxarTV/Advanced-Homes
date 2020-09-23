@@ -30,7 +30,7 @@ public class HomesCommand implements CommandExecutor {
 
                 } else {
 
-                    p.sendMessage(AdvancedHomes.getPrefix() +  + String.valueOf(config.getList(p.getName() + ":Homes", SetHomeCommand.homes)));
+                    p.sendMessage(AdvancedHomes.getPrefix() + "§aHomes: §3" + config.getList(p.getName() + ".Homes", SetHomeCommand.homes));
 
                 }
 

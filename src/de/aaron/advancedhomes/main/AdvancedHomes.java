@@ -1,8 +1,7 @@
 package de.aaron.advancedhomes.main;
 
-import de.aaron.advancedhomes.commands.AdHoCommands;
-import de.aaron.advancedhomes.commands.SetHomeCommand;
-import de.aaron.advancedhomes.commands.DelHomeCommand;
+import de.aaron.advancedhomes.commands.*;
+import de.aaron.advancedhomes.listners.OnPlayerMovement;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -25,6 +24,10 @@ public class AdvancedHomes extends JavaPlugin {
         getCommand("AdHo").setExecutor(new AdHoCommands());
         getCommand("sethome").setExecutor(new SetHomeCommand());
         getCommand("delhome").setExecutor(new DelHomeCommand());
+        getCommand("homes").setExecutor(new HomesCommand());
+        getCommand("home").setExecutor(new HomeCommand());
+
+        getServer().getPluginManager().registerEvents(new OnPlayerMovement(), this);
 
     }
 

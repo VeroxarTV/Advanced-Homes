@@ -63,13 +63,13 @@ public class AdHoCommands implements CommandExecutor {
                         switch (args[0]) {
 
                             case "help":
-                                p.sendMessage("§7***-***-§9Advanced§7-§9Homes§7-***-***");
+                                p.sendMessage("§7***-***-§bAdvanced§7-§bHomes§7-***-***");
                                 p.sendMessage("§6/AdHo help §7≫ §aZeigt dir dieses Menü an!");
                                 p.sendMessage("§6/sethome [Name] §7≫ §aSetzt dein Home!");
                                 p.sendMessage("§6/delhome [Name] §7≫ §aLöscht dein Home!");
                                 p.sendMessage("§6/homes §7≫ §aZeigt dir eine Liste deiner Homes an!");
                                 p.sendMessage("§6/home [name] §7≫ §aTeleportiert dich zu deinem Home!");
-                                p.sendMessage("§7***-***-§9Advanced§7-§9Homes§7-***-***");
+                                p.sendMessage("§7***-***-§bAdvanced§7-§bHomes§7-***-***");
 
                                 break;
 
@@ -97,22 +97,22 @@ public class AdHoCommands implements CommandExecutor {
                     switch (args[0]) {
 
                         case "help":
-                            p.sendMessage("§7***-***-§9Advanced§7-§9Homes§7-***-***");
+                            p.sendMessage("§7***-***-§bAdvanced§7-§bHomes§7-***-***");
                             p.sendMessage("§6/AdHo help §7≫ §aZeigt dir dieses Menü an!");
                             p.sendMessage("§6/AdHo info §7≫ §aZeigt dir Informationen über das Plugin an!");
                             p.sendMessage("§6/sethome [Name] §7≫ §aSetzt dein Home!");
                             p.sendMessage("§6/delhome [Name] §7≫ §aLöscht dein Home!");
                             p.sendMessage("§6/homes §7≫ §aZeigt dir eine Liste deiner Homes an!");
                             p.sendMessage("§6/home [name] §7≫ §aTeleportiert dich zu deinem Home!");
-                            p.sendMessage("§7***-***-§9Advanced§7-§9Homes§7-***-***");
+                            p.sendMessage("§7***-***-§bAdvanced§7-§bHomes§7-***-***");
 
                             break;
 
                         case "info":
-                            p.sendMessage("§7***-***-§9Advanced§7-§9Homes§7-***-***");
+                            p.sendMessage("§7***-***-§bAdvanced§7-§bHomes§7-***-***");
                             p.sendMessage("§6Version: §a" + AdvancedHomes.getPlugin().getDescription().getVersion());
                             p.sendMessage("§6Author: §a" + AdvancedHomes.getPlugin().getDescription().getDescription());
-                            p.sendMessage("§7***-***-§9Advanced§7-§9Homes§7-***-***");
+                            p.sendMessage("§7***-***-§bAdvanced§7-§bHomes§7-***-***");
 
                             break;
 
