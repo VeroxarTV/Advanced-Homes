@@ -7,6 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
+
 public class HomesCommand implements CommandExecutor {
 
     FileConfiguration config = AdvancedHomes.getPlugin().getConfig();
@@ -28,11 +29,12 @@ public class HomesCommand implements CommandExecutor {
 
                     p.sendMessage(AdvancedHomes.getHelp());
 
-                } else {
+                } else if (config.getInt(p.getName() + ".Homes", SetHomeCommand.homes.size()) != 0 ){
 
-                    p.sendMessage(AdvancedHomes.getPrefix() + "§aHomes: §3" + config.getList(p.getName() + ".Homes", SetHomeCommand.homes));
+                    p.sendMessage("§aHomes§7 (§3" + config.getInt(p.getName() + ".Homes", SetHomeCommand.homes.size()) + "§7)§7 : §3" + config.getStringList(p.getName() + ".HomeNames"));
 
-                }
+                } else
+                    p.sendMessage(AdvancedHomes.getPrefix() + "§cDu besitzt keine Homes!");
 
 
             }

@@ -33,47 +33,67 @@ public class SetHomeCommand implements CommandExecutor {
 
                     return true;
 
-                } else if (p.hasPermission("AdHo.Homes.*")) {
+                } else if (p.hasPermission("AdHo.Homes.9")) {
 
-                    if (config.contains(p.getName() + "." + args[0])) {
+                    if (config.contains(p.getName() + "." + args[0].toLowerCase())) {
 
                         p.sendMessage(AdvancedHomes.getPrefix() + "§cDieses Home hast du bereits gesetzt!");
 
                     } else {
 
-                        homes.add(args[0]);
+                        if (config.getInt(p.getName() + ".Homes", homes.size()) < 9) {
 
-                        config.set(p.getName() + ".Homes", homes);
-                        config.set(p.getName() + "." + args[0] + ".World", p.getWorld().getName());
-                        config.set(p.getName() + "." + args[0] + ".X", p.getLocation().getX());
-                        config.set(p.getName() + "." + args[0] + ".Y", p.getLocation().getY());
-                        config.set(p.getName() + "." + args[0] + ".Z", p.getLocation().getZ());
-                        config.set(p.getName() + "." + args[0] + ".Yaw", p.getLocation().getYaw());
-                        config.set(p.getName() + "." + args[0] + ".Pitch", p.getLocation().getPitch());
-                        AdvancedHomes.getPlugin().saveConfig();
+                            if (!(args[0].equalsIgnoreCase("*"))) {
 
-                        p.sendMessage(AdvancedHomes.getPrefix() + "§aDein Home wurde gesetzt!");
+                                homes.add(args[0].toLowerCase());
 
+                                config.set(p.getName() + ".Homes", homes.size());
+                                config.set(p.getName() + ".HomeNames", homes);
+                                config.set(p.getName() + "." + args[0].toLowerCase() + ".World", p.getWorld().getName());
+                                config.set(p.getName() + "." + args[0].toLowerCase() + ".X", p.getLocation().getX());
+                                config.set(p.getName() + "." + args[0].toLowerCase() + ".Y", p.getLocation().getY());
+                                config.set(p.getName() + "." + args[0].toLowerCase() + ".Z", p.getLocation().getZ());
+                                config.set(p.getName() + "." + args[0].toLowerCase() + ".Yaw", p.getLocation().getYaw());
+                                config.set(p.getName() + "." + args[0].toLowerCase() + ".Pitch", p.getLocation().getPitch());
+                                AdvancedHomes.getPlugin().saveConfig();
+
+                                homes.remove(args[0].toLowerCase());
+
+                                p.sendMessage(AdvancedHomes.getPrefix() + "§aDein Home wurde gesetzt!");
+
+                            } else
+                                p.sendMessage(AdvancedHomes.getPrefix() + "§cDas ist ein Ungültiger Name!");
+
+                        } else
+                            p.sendMessage(AdvancedHomes.getPrefix() + "§cDu besitzt schon 9 Homes!");
                     }
 
                 } else if (!(config.contains(p.getName()))){
 
-                    homes.add(args[0]);
+                    if (!(args[0].equalsIgnoreCase("*"))) {
 
-                    config.set(p.getName() + ".Homes", homes);
-                    config.set(p.getName() + "." + args[0] + ".World", p.getWorld().getName());
-                    config.set(p.getName() + "." + args[0] + ".X", p.getLocation().getX());
-                    config.set(p.getName() + "." + args[0] + ".Y", p.getLocation().getY());
-                    config.set(p.getName() + "." + args[0] + ".Z", p.getLocation().getZ());
-                    config.set(p.getName() + "." + args[0] + ".Yaw", p.getLocation().getYaw());
-                    config.set(p.getName() + "." + args[0] + ".Pitch", p.getLocation().getPitch());
-                    AdvancedHomes.getPlugin().saveConfig();
+                        homes.add(args[0].toLowerCase());
 
-                    p.sendMessage(AdvancedHomes.getPrefix() + "§aDein Home wurde gesetzt!");
+                        config.set(p.getName() + ".Homes", homes.size());
+                        config.set(p.getName() + ".HomeNames", homes);
+                        config.set(p.getName() + "." + args[0].toLowerCase() + ".World", p.getWorld().getName());
+                        config.set(p.getName() + "." + args[0].toLowerCase() + ".X", p.getLocation().getX());
+                        config.set(p.getName() + "." + args[0].toLowerCase() + ".Y", p.getLocation().getY());
+                        config.set(p.getName() + "." + args[0].toLowerCase() + ".Z", p.getLocation().getZ());
+                        config.set(p.getName() + "." + args[0].toLowerCase() + ".Yaw", p.getLocation().getYaw());
+                        config.set(p.getName() + "." + args[0].toLowerCase() + ".Pitch", p.getLocation().getPitch());
+                        AdvancedHomes.getPlugin().saveConfig();
 
-                } else if (!(config.getList(p.getName() + ".Homes", homes).size() < 3)) {
+                        homes.remove(args[0].toLowerCase());
 
-                    if (config.contains(p.getName() + "." + args[0])) {
+                        p.sendMessage(AdvancedHomes.getPrefix() + "§aDein Home wurde gesetzt!");
+
+                    } else
+                        p.sendMessage(AdvancedHomes.getPrefix() + "§cDas ist ein Ungültiger Name!");
+
+                } else if (config.getInt(p.getName() + ".Homes", homes.size()) >= 3) {
+
+                    if (config.contains(p.getName() + "." + args[0].toLowerCase())) {
 
                         p.sendMessage(AdvancedHomes.getPrefix() + "§cDieses Home hast du bereits gesetzt!");
 
@@ -82,24 +102,32 @@ public class SetHomeCommand implements CommandExecutor {
 
                 } else {
 
-                    if (config.contains(p.getName() + "." + args[0])) {
+                    if (config.contains(p.getName() + "." + args[0].toLowerCase())) {
 
                         p.sendMessage(AdvancedHomes.getPrefix() + "§cDieses Home hast du bereits gesetzt!");
 
                     } else {
 
-                        homes.add(args[0]);
+                        if (!(args[0].equalsIgnoreCase("*"))) {
 
-                        config.set(p.getName() + ".Homes", homes);
-                        config.set(p.getName() + "." + args[0] + ".World", p.getWorld().getName());
-                        config.set(p.getName() + "." + args[0] + ".X", p.getLocation().getX());
-                        config.set(p.getName() + "." + args[0] + ".Y", p.getLocation().getY());
-                        config.set(p.getName() + "." + args[0] + ".Z", p.getLocation().getZ());
-                        config.set(p.getName() + "." + args[0] + ".Yaw", p.getLocation().getYaw());
-                        config.set(p.getName() + "." + args[0] + ".Pitch", p.getLocation().getPitch());
-                        AdvancedHomes.getPlugin().saveConfig();
+                            homes.add(args[0].toLowerCase());
 
-                        p.sendMessage(AdvancedHomes.getPrefix() + "§aDein Home wurde gesetzt!");
+                            config.set(p.getName() + ".Homes", homes.size());
+                            config.set(p.getName() + ".HomeNames", homes);
+                            config.set(p.getName() + "." + args[0].toLowerCase() + ".World", p.getWorld().getName());
+                            config.set(p.getName() + "." + args[0].toLowerCase() + ".X", p.getLocation().getX());
+                            config.set(p.getName() + "." + args[0].toLowerCase() + ".Y", p.getLocation().getY());
+                            config.set(p.getName() + "." + args[0].toLowerCase() + ".Z", p.getLocation().getZ());
+                            config.set(p.getName() + "." + args[0].toLowerCase() + ".Yaw", p.getLocation().getYaw());
+                            config.set(p.getName() + "." + args[0].toLowerCase() + ".Pitch", p.getLocation().getPitch());
+                            AdvancedHomes.getPlugin().saveConfig();
+
+                            homes.remove(args[0].toLowerCase());
+
+                            p.sendMessage(AdvancedHomes.getPrefix() + "§aDein Home wurde gesetzt!");
+
+                        } else
+                            p.sendMessage(AdvancedHomes.getPrefix() + "§cDas ist ein Ungültiger Name!");
                     }
                 }
             }

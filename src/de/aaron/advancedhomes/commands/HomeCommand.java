@@ -37,18 +37,18 @@ public class HomeCommand implements CommandExecutor {
 
                     p.sendMessage(AdvancedHomes.getHelp());
 
-                } else if (config.get(p.getName() + "." + args[0]) == null) {
+                } else if (config.get(p.getName() + "." + args[0].toLowerCase()) == null) {
 
                     p.sendMessage(AdvancedHomes.getPrefix() + "§cDieses Home existiert nicht!");
 
                 } else {
 
-                    World world = Bukkit.getWorld(config.getString(p.getName() + "." + args[0] + ".World"));
-                    double x = config.getDouble(p.getName() + "." + args[0] + ".X");
-                    double y = config.getDouble(p.getName() + "." + args[0] + ".Y");
-                    double z = config.getDouble(p.getName() + "." + args[0] + ".Z");
-                    float yaw = (float) config.getDouble(p.getName() + "." + args[0] + ".Yaw");
-                    float pitch = (float) config.getDouble(p.getName() + "." + args[0] + ".Pitch");
+                    World world = Bukkit.getWorld(config.getString(p.getName() + "." + args[0].toLowerCase() + ".World"));
+                    double x = config.getDouble(p.getName() + "." + args[0].toLowerCase() + ".X");
+                    double y = config.getDouble(p.getName() + "." + args[0].toLowerCase() + ".Y");
+                    double z = config.getDouble(p.getName() + "." + args[0].toLowerCase() + ".Z");
+                    float yaw = (float) config.getDouble(p.getName() + "." + args[0].toLowerCase() + ".Yaw");
+                    float pitch = (float) config.getDouble(p.getName() + "." + args[0].toLowerCase() + ".Pitch");
 
                     Location home = new Location(world, x, y, z, yaw, pitch);
 

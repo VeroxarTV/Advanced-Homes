@@ -18,7 +18,7 @@ public class OnPlayerMovement implements Listener {
 
         if (HomeCommand.teleportingPlayers.containsKey(p.getUniqueId())) {
 
-            if (e.getFrom().getX() != e.getTo().getX()) {
+            if (e.getFrom().getBlockX() != e.getTo().getBlockX()) {
 
                 HomeCommand.teleportingPlayers.remove(p.getUniqueId());
 
@@ -26,7 +26,7 @@ public class OnPlayerMovement implements Listener {
 
                 p.sendMessage(AdvancedHomes.getPrefix() + "§cTeleport abgebrochen!");
 
-            } else if (e.getFrom().getY() != e.getTo().getY()) {
+            } else if (e.getFrom().getBlockY() != e.getTo().getBlockY()) {
 
                 HomeCommand.teleportingPlayers.remove(p.getUniqueId());
 
@@ -34,7 +34,7 @@ public class OnPlayerMovement implements Listener {
 
                 p.sendMessage(AdvancedHomes.getPrefix() + "§cTeleport abgebrochen!");
 
-            } else if (e.getFrom().getZ() != e.getTo().getZ()) {
+            } else if (e.getFrom().getBlockZ() != e.getTo().getBlockZ()) {
 
                 HomeCommand.teleportingPlayers.remove(p.getUniqueId());
 

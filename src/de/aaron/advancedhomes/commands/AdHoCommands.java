@@ -27,10 +27,12 @@ public class AdHoCommands implements CommandExecutor {
                             sender.sendMessage("§7***-***-§bAdvanced§7-§bHomes§7-***-***");
                             sender.sendMessage("§6/AdHo help §7≫ §aZeigt dir dieses Menü an!");
                             sender.sendMessage("§6/AdHo info §7≫ §aZeigt dir Informationen über das Plugin an!");
+                            sender.sendMessage("§6/AdHo reload §7≫ §aReloaded die Config!");
                             sender.sendMessage("§6/sethome [Name] §7≫ §aSetzt dein Home!");
-                            sender.sendMessage("§6/delhome [Name] §7≫ §aLöscht dein Home!");
-                            sender.sendMessage("§6/homes §7≫ §aZeigt dir eine Liste deiner Homes an!");
                             sender.sendMessage("§6/home [name] §7≫ §aTeleportiert dich zu deinem Home!");
+                            sender.sendMessage("§6/homes §7≫ §aZeigt dir eine Liste deiner Homes an!");
+                            sender.sendMessage("§6/delhome [Name] §7≫ §aLöscht dein Home!");
+                            sender.sendMessage("§6/delhome * §7≫ §aLöscht alle deine Homes!");
                             sender.sendMessage("§7***-***-§bAdvanced§7-§bHomes§7-***-***");
 
                             break;
@@ -40,6 +42,13 @@ public class AdHoCommands implements CommandExecutor {
                             sender.sendMessage("§6Version: §a" + AdvancedHomes.getPlugin().getDescription().getVersion());
                             sender.sendMessage("§6Author: §a" + AdvancedHomes.getPlugin().getDescription().getDescription());
                             sender.sendMessage("§7***-***-§bAdvanced§7-§bHomes§7-***-***");
+
+                            break;
+
+                        case "reload":
+
+                            AdvancedHomes.getPlugin().reloadConfig();
+                            sender.sendMessage(AdvancedHomes.getPrefix() + "§aDie Config wurde neu geladen!");
 
                             break;
 
@@ -66,14 +75,21 @@ public class AdHoCommands implements CommandExecutor {
                                 p.sendMessage("§7***-***-§bAdvanced§7-§bHomes§7-***-***");
                                 p.sendMessage("§6/AdHo help §7≫ §aZeigt dir dieses Menü an!");
                                 p.sendMessage("§6/sethome [Name] §7≫ §aSetzt dein Home!");
-                                p.sendMessage("§6/delhome [Name] §7≫ §aLöscht dein Home!");
-                                p.sendMessage("§6/homes §7≫ §aZeigt dir eine Liste deiner Homes an!");
                                 p.sendMessage("§6/home [name] §7≫ §aTeleportiert dich zu deinem Home!");
+                                p.sendMessage("§6/homes §7≫ §aZeigt dir eine Liste deiner Homes an!");
+                                p.sendMessage("§6/delhome [Name] §7≫ §aLöscht dein Home!");
+                                p.sendMessage("§6/delhome * §7≫ §aLöscht alle deine Homes!");
                                 p.sendMessage("§7***-***-§bAdvanced§7-§bHomes§7-***-***");
 
                                 break;
 
                             case "info":
+
+                                p.sendMessage(AdvancedHomes.getNoperm());
+
+                                break;
+
+                            case "reload":
 
                                 p.sendMessage(AdvancedHomes.getNoperm());
 
@@ -100,10 +116,12 @@ public class AdHoCommands implements CommandExecutor {
                             p.sendMessage("§7***-***-§bAdvanced§7-§bHomes§7-***-***");
                             p.sendMessage("§6/AdHo help §7≫ §aZeigt dir dieses Menü an!");
                             p.sendMessage("§6/AdHo info §7≫ §aZeigt dir Informationen über das Plugin an!");
+                            p.sendMessage("§6/AdHo reload §7≫ §aReloaded die Config!");
                             p.sendMessage("§6/sethome [Name] §7≫ §aSetzt dein Home!");
-                            p.sendMessage("§6/delhome [Name] §7≫ §aLöscht dein Home!");
-                            p.sendMessage("§6/homes §7≫ §aZeigt dir eine Liste deiner Homes an!");
                             p.sendMessage("§6/home [name] §7≫ §aTeleportiert dich zu deinem Home!");
+                            p.sendMessage("§6/homes §7≫ §aZeigt dir eine Liste deiner Homes an!");
+                            p.sendMessage("§6/delhome [Name] §7≫ §aLöscht dein Home!");
+                            p.sendMessage("§6/delhome * §7≫ §aLöscht alle deine Homes!");
                             p.sendMessage("§7***-***-§bAdvanced§7-§bHomes§7-***-***");
 
                             break;
@@ -115,6 +133,15 @@ public class AdHoCommands implements CommandExecutor {
                             p.sendMessage("§7***-***-§bAdvanced§7-§bHomes§7-***-***");
 
                             break;
+
+                        case "reload":
+
+                            AdvancedHomes.getPlugin().reloadConfig();
+
+                            p.sendMessage(AdvancedHomes.getPrefix() + "§aDie Config wurde neu geladen!");
+
+                            break;
+
 
                         default:
                             p.sendMessage(AdvancedHomes.getHelp());
